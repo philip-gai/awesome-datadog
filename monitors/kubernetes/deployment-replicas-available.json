@@ -1,0 +1,25 @@
+{
+  "name": "Kubernetes Deployments Replica Not Available",
+  "type": "query alert",
+  "query": "avg(last_15m):avg:kubernetes_state.deployment.replicas_desired{} by {kube_namespace,kube_deployment,kube_cluster_name} - avg:kubernetes_state.deployment.replicas_available{} by {kube_namespace,kube_deployment,kube_cluster_name} >= 2",
+  "message": "{{#is_alert}}\n{{value}} Deployments Replica's pods are down on the {{kube_cluster_name.name}} cluster in Deployment {{kube_namespace.name}}/{{kube_deployment.name}}.\n{{/is_alert}}\n{{#is_recovery}}\nDeployments Replica's pods have recovered in Cluster {{kube_cluster_name.name}} and Deployment {{kube_namespace.name}}/{{kube_deployment.name}}.\n{{/is_recovery}}",
+  "tags": [],
+  "options": {
+    "notify_audit": false,
+    "locked": true,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 2,
+      "critical_recovery": 0
+    },
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "evaluation_delay": null
+  },
+  "priority": null,
+  "restricted_roles": null
+}

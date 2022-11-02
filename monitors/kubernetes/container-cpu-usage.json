@@ -1,0 +1,25 @@
+{
+  "name": "Kubernetes Container CPU Usage",
+  "type": "query alert",
+  "query": "avg(last_5m):(avg:kubernetes.cpu.usage.total{} by {kube_cluster_name,kube_container_name} / (1000000000 * avg:kubernetes.cpu.limits{} by {kube_cluster_name,kube_container_name})) * 100 >= 80",
+  "message": "{{#is_alert}}\nOver the last five minutes, CPU usage has been high at {{value}}% on the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster.\n{{/is_alert}}\n{{#is_recovery}}\nCPU usage has returned to normal for the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster.\n{{/is_recovery}}",
+  "tags": [],
+  "options": {
+    "notify_audit": false,
+    "locked": true,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 80,
+      "critical_recovery": 50
+    },
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "evaluation_delay": null
+  },
+  "priority": null,
+  "restricted_roles": null
+}

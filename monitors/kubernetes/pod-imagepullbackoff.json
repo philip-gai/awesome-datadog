@@ -1,0 +1,25 @@
+{
+  "name": "Kubernetes Pod ImagePullBackOff",
+  "type": "query alert",
+  "query": "max(last_10m):max:kubernetes_state.container.status_report.count.waiting{reason:imagepullbackoff,} by {kube_cluster_name,kube_namespace,pod_name} >= 1",
+  "message": "{{#is_alert}}\nPod {{pod_name.name}} in cluster {{kube_cluster_name.name}} is in ImagePullBackOff on namespace {{kube_namespace.name}}.\n\nThis could happen for several reasons, for example a bad image path or tag or if the credentials for pulling images are not configured properly.\n{{/is_alert}}\n{{#is_recovery}}\nPod {{pod_name.name}} in cluster {{kube_cluster_name.name}} is back to normal.\n{{/is_recovery}}",
+  "tags": [],
+  "options": {
+    "notify_audit": false,
+    "locked": true,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 1,
+      "critical_recovery": 0
+    },
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "evaluation_delay": null
+  },
+  "priority": null,
+  "restricted_roles": null
+}
