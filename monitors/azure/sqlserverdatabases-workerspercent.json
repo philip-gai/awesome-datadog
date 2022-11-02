@@ -1,0 +1,25 @@
+{
+  "name": "Azure SQL Server Database Workers Percent",
+  "type": "query alert",
+  "query": "avg(last_1h):avg:azure.sql_servers_databases.workers_percent{} by {name,server_name} > 20",
+  "message": "{{#is_alert}} The database worker threads are greater than {{threshold}}% of the max for the last hour on {{name.name}} {{/is_alert}}\n\n{{#is_recovery}} The database workers percentage monitor has recovered. {{/is_recovery}}",
+  "tags": [],
+  "options": {
+    "notify_audit": false,
+    "locked": true,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 20,
+      "critical_recovery": 10
+    },
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "evaluation_delay": 300
+  },
+  "priority": null,
+  "restricted_roles": null
+}

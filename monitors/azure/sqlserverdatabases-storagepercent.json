@@ -1,0 +1,25 @@
+{
+  "name": "Azure SQL Server Database Storage Percent",
+  "type": "query alert",
+  "query": "avg(last_1h):avg:azure.sql_servers_databases.storage_percent{} by {name,server_name} > 80",
+  "message": "{{#is_alert}} The database {{name.name}} is more than {{threshold}}% full. {{/is_alert}}\n\n{{#is_recovery}} The database is no longer {{threshold}}% full. {{/is_recovery}}",
+  "tags": [],
+  "options": {
+    "notify_audit": false,
+    "locked": true,
+    "timeout_h": 0,
+    "silenced": {},
+    "include_tags": true,
+    "thresholds": {
+      "critical": 95,
+      "critical_recovery": 80
+    },
+    "new_host_delay": 300,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "evaluation_delay": 300
+  },
+  "priority": null,
+  "restricted_roles": null
+}
