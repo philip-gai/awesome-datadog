@@ -23,9 +23,9 @@ See Datadog docs for [exporting and importing monitors](https://docs.datadoghq.c
   - [Kubernetes Container Memory Usage](./monitors/kubernetes/container-memory-usage.json)
   - [Kubernetes Deployments Replica Not Available](./monitors/kubernetes/deployment-replicas-available.json)
   - [Kubernetes Namespace Status Failed](./monitors/kubernetes/namespace-pods.json)
-  - [Kubernetes Nodes Unschedulable](./monitors/kubernetes/nodes-unschedulable.json)
-  - [Kubernetes Pod CrashloopBackOff](./monitors/kubernetes/pod-crashloopbackoff.json)
-  - [Kubernetes Pod ImagePullBackOff](./monitors/kubernetes/pod-imagepullbackoff.json)
+  - [Kubernetes Nodes Unschedulable](./monitors/kubernetes/nodes-unschedulable)
+  - [Kubernetes Pod CrashloopBackOff](./monitors/kubernetes/pod-crashloopbackoff)
+  - [Kubernetes Pod ImagePullBackOff](./monitors/kubernetes/pod-imagepullbackoff)
   - [Kubernetes Statefulset Replicas Ready](./monitors/kubernetes/statefulset-replicas-ready.json)
 
 ## Dashboards
