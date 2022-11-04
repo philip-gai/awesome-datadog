@@ -8,15 +8,15 @@ See Datadog docs for [exporting and importing monitors](https://docs.datadoghq.c
 
 ## Monitors
 
-- [Azure](./azure/)
+- [Azure](./azure/monitors/)
   - [Azure Container Service Managed Clusters Node Disk Usage Percentage](./azure/monitors/containerservice-managedclusters-nodediskusagepercentage.json)
   - [Azure SQL Server Database Log Write Percent](./azure/monitors/sqlserverdatabases-logwritepercent.json)
   - [Azure SQL Server Database Physical Data Read Percent](./azure/monitors/sqlserverdatabases-physicaldatareadpercent.json)
   - [Azure SQL Server Database Storage Percent](./azure/monitors/sqlserverdatabases-storagepercent.json)
   - [Azure SQL Server Database Workers Percent](./azure/monitors/sqlserverdatabases-workerspercent.json)
-- [.NET](./dotnet/)
+- [.NET](./dotnet/monitors/)
   - [ASP.NET Core Request Queue Length](./dotnet/monitors/aspnetcore-requests-queuelength.json)
-- [Kubernetes](./kubernetes/)
+- [Kubernetes](./kubernetes/monitors/)
   - [Kubernetes Container CPU Usage](./kubernetes/monitors/container-cpu-usage.json)
   - [Kubernetes Container Memory Usage](./kubernetes/monitors/container-memory-usage.json)
   - [Kubernetes Deployments Replica Not Available](./kubernetes/monitors/deployment-replicas-available.json)
