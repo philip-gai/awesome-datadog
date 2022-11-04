@@ -1,10 +1,8 @@
 # awesome-datadog
 
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-
 ![awesome-datadog-logo](https://user-images.githubusercontent.com/17363579/199892152-799ce2c9-cb98-40f1-aa0b-753120ad76f1.png)
 
-😎 Awesome Datadog monitors, dashboards, and troubleshooting guides.
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 
 Pull requests welcome! Please suggest improvements to the monitors, troubleshooting guides, etc.
 
