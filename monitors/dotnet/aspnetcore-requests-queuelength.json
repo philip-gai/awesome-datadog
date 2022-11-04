@@ -1,7 +1,7 @@
 {
   "name": "ASP.NET Core Request Queue Length",
   "type": "query alert",
-  "query": "avg(last_15m):max:runtime.dotnet.aspnetcore.requests.queue_length{} by {kube_cluster_name} / diff(max:runtime.dotnet.aspnetcore.requests.total{} by {kube_cluster_name}) * 100 > 30",
+  "query": "avg(last_15m):max:runtime.dotnet.aspnetcore.requests.queue_length{} by {kube_cluster_name} / diff(max:runtime.dotnet.aspnetcore.requests.total{} by {kube_cluster_name}) * 100 > 70",
   "message": "{{#is_alert}} More than {{threshold}}% of ASP.NET requests are waiting in the queue. {{/is_alert}}\n\n{{#is_recovery}} The ASP.NET request queue monitor has recovered. {{/is_recovery}}",
   "tags": [],
   "options": {
