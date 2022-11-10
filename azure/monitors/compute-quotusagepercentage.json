@@ -1,0 +1,25 @@
+{
+	"name": "Azure Compute Quota Usage is High for {{usage_name.name}}",
+	"type": "query alert",
+	"query": "avg(last_1h):avg:azure.usage.percentage{usage_category:compute,subscription_name:*} by {region,usage_name,subscription_name} * 100 > 90",
+	"message": "{{usage_name.name}} is at {{value}}% of it's quota limit. See [dashboard](https://app.datadoghq.com/dash/integration/30291/azure-resource-usage-and-quota-overview?tpl_var_subscription_name%5B0%5D={{subscription_name.name}}&live=true&tile_focus=157130772826574).",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 90,
+			"warning": 75,
+			"critical_recovery": 80,
+			"warning_recovery": 70
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"include_tags": true,
+		"new_group_delay": 60,
+		"evaluation_delay": 300,
+		"silenced": {}
+	},
+	"priority": null,
+	"restricted_roles": null
+}

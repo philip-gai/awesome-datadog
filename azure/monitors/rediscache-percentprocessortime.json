@@ -1,0 +1,25 @@
+{
+	"name": "Azure Redis Cache CPU Usage is High on {{name.name}}",
+	"type": "query alert",
+	"query": "avg(last_5m):avg:azure.cache_redis.percent_processor_time{subscription_name:*} by {name,subscription_id,subscription_name} > 90",
+	"message": "{{name.name}} is using {{value}}% of its CPU.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/104/azure-redis-cache-overview?tpl_var_subscription_name%5B0%5D={{subscription_name.name}}&live=true).",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 90,
+			"warning": 80,
+			"critical_recovery": 80,
+			"warning_recovery": 70
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"include_tags": true,
+		"evaluation_delay": 300,
+		"new_group_delay": 60,
+		"silenced": {}
+	},
+	"priority": null,
+	"restricted_roles": null
+}

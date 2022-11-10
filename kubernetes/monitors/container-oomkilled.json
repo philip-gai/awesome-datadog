@@ -1,0 +1,22 @@
+{
+	"name": "Kubernetes Container {{kube_container_name.name}} was OOM Killed",
+	"type": "query alert",
+	"query": "sum(last_5m):default_zero(sum:kubernetes.containers.state.terminated{reason:oomkilled,service:*} by {kube_cluster_name,kube_container_name}) >= 10",
+	"message": "Container {{kube_container_name.name}} was OOM Killed {{value}} times.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/30322/kubernetes-pods-overview?tpl_var_cluster%5B0%5D={{kube_cluster_name.name}}&live=true&tile_focus=935123463493438).",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 10,
+			"warning": 1
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"include_tags": true,
+		"new_group_delay": 60,
+		"silenced": {}
+	},
+	"priority": null,
+	"restricted_roles": null
+}

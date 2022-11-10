@@ -1,0 +1,24 @@
+{
+  "id": 102229074,
+  "name": "Azure AKS Cluster {{name.name}} Reporting Unhealthy Status",
+  "type": "query alert",
+  "query": "avg(last_5m):default_zero(avg:azure.containerservice_managedclusters.count{subscription_name:*,!status:running} by {name,resource_group,subscription_name,status}) >= 1",
+  "message": "The Azure resource health provider is reporting the AKS cluster {{name.name}} is in a {{status.name}} state.\n\nSee [AKS dashboard](https://app.datadoghq.com/dash/integration/30699/azure-kubernetes-service?tpl_var_resource_group%5B0%5D={{resource_group.name}}&live=true).\n\nMore information about [Azure Status and Count Metrics](https://docs.datadoghq.com/integrations/guide/azure-status-metric/).",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 1,
+      "critical_recovery": 0.1
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "new_group_delay": 60,
+    "evaluation_delay": 60,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
+}

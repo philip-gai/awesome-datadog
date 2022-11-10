@@ -1,0 +1,23 @@
+{
+	"name": "Azure SQL Database Deadlocks on {{name.name}}",
+	"type": "query alert",
+	"query": "avg(last_1h):avg:azure.sql_servers_databases.deadlock{subscription_name:*} by {name,subscription_name,server_name,resource_group} >= 10",
+	"message": "This database has more than {{threshold}} deadlocks in the last 15 minutes. See [Deadlocks by Database](https://app.datadoghq.com/dash/integration/93/azure-sql-databases-overview?tpl_var_resource_group%5B0%5D={{resource_group.name}}&live=true&tile_focus=1159384921439762).",
+	"tags": [],
+	"options": {
+		"thresholds": {
+			"critical": 10,
+			"critical_recovery": 0.1
+		},
+		"notify_audit": false,
+		"require_full_window": false,
+		"notify_no_data": false,
+		"renotify_interval": 0,
+		"include_tags": true,
+		"new_group_delay": 60,
+		"evaluation_delay": 300,
+		"silenced": {}
+	},
+	"priority": null,
+	"restricted_roles": null
+}
