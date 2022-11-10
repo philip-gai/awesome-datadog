@@ -1,5 +1,5 @@
 {
-	"name": "Dotnet Runtime Exception Type Anomaly for {{exception_type.name}}",
+	"name": "Dotnet Runtime Exception Type Anomalies for {{exception_type.name}}",
 	"type": "query alert",
 	"query": "sum(last_4h):anomalies(sum:runtime.dotnet.exceptions.count{service:*} by {exception_type,service,subscription_id}.as_count(), 'agile', 2, direction='both', interval=60, alert_window='last_15m', seasonality='hourly', count_default_zero='true', timezone='utc') >= 1",
 	"message": "There is an anomaly in the number of exceptions of type {{exception_type.name}} on {{service.name}}.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/30412/net-runtime-metrics?tpl_var_service%5B0%5D={{service.name}}&live=true).",

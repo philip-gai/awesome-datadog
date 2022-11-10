@@ -1,5 +1,4 @@
 {
-  "id": 102229074,
   "name": "Azure AKS Cluster {{name.name}} Reporting Unhealthy Status",
   "type": "query alert",
   "query": "avg(last_5m):default_zero(avg:azure.containerservice_managedclusters.count{subscription_name:*,!status:running} by {name,resource_group,subscription_name,status}) >= 1",
