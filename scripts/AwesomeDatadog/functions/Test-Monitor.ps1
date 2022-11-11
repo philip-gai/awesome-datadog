@@ -31,7 +31,7 @@ function Test-Monitor {
       -ContentType "application/json" `
       -Method Post `
       -UseBasicParsing `
-      -Headers @{"DD-API-KEY" = $env:DD_API_KEY; "DD-APPLICATION-KEY" = $env:DD_APP_KEY } `
+      -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
       -Body $monitorJson
     $isValid = $true
   }
