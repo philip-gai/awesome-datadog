@@ -33,7 +33,7 @@ function Search-Monitor {
       -Uri " https://api.datadoghq.com/api/v1/monitor/search" `
       -Method Get `
       -UseBasicParsing `
-      -Headers @{"DD-API-KEY" = $env:DD_API_KEY; "DD-APPLICATION-KEY" = $env:DD_APP_KEY } `
+      -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
       -Body $query `
       | ConvertFrom-Json
 
