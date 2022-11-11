@@ -20,7 +20,7 @@ function Test-Monitor {
   # Import the monitor export file
   $monitor = Get-Content $MonitorFile | ConvertFrom-Json
   $monitor.tags += "managed_by:awesome-datadog"
-  $monitorJson = $monitor | ConvertTo-Json
+  $monitorJson = $monitor | ConvertTo-Json -Depth 10
 
   Write-Debug "Monitor: $monitorJson"
   Write-Host "Validating monitor `"$($monitor.name)`""

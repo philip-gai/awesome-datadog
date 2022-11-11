@@ -21,10 +21,10 @@ function Update-Monitor {
 
   # Import the monitor export file
   $monitor = Get-Content $MonitorFile | ConvertFrom-Json
-  $monitorJson = $monitor | ConvertTo-Json
+  $monitorJson = $monitor | ConvertTo-Json -Depth 10
 
   Write-Debug "Monitor: $monitorJson"
-  Write-Host "Updating monitor $MonitorId with $MonitorFile"
+  Write-Debug "Updating monitor $MonitorId with $MonitorFile"
 
   $response = Invoke-WebRequest `
     -Uri "https://api.datadoghq.com/api/v1/monitor/$MonitorId" `
@@ -36,5 +36,5 @@ function Update-Monitor {
     | ConvertFrom-Json
 
   Write-Debug $response
-  Write-Host "Monitor updated"
+  Write-Verbose "Monitor updated"
 }

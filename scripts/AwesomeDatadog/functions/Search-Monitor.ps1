@@ -37,7 +37,7 @@ function Search-Monitor {
       -Body $query `
       | ConvertFrom-Json
 
-  Write-Debug "Monitor search results: $($monitorSearchResult | ConvertTo-Json)"
+  Write-Debug "Monitor search results: $($monitorSearchResult | ConvertTo-Json -Depth 10)"
 
   if ($monitorSearchResult.monitors.Count -ne 1) {
     Write-Host "Monitor not found: $monitorNameSanitized"

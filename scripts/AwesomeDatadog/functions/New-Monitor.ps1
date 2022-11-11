@@ -20,10 +20,10 @@ function New-Monitor {
   # Import the monitor export file
   $monitor = Get-Content $MonitorFile | ConvertFrom-Json
   $monitor.tags += "managed_by:awesome-datadog"
-  $monitorJson = $monitor | ConvertTo-Json
+  $monitorJson = $monitor | ConvertTo-Json -Depth 10
 
   Write-Debug "Monitor: $monitorJson"
-  Write-Host "Creating monitor `"$($monitor.name)`""
+  Write-Verbose "Creating monitor `"$($monitor.name)`""
 
   $response = Invoke-WebRequest `
     -Uri "https://api.datadoghq.com/api/v1/monitor" `
@@ -33,5 +33,5 @@ function New-Monitor {
     -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
     -Body $monitorJson
   Write-Debug $response
-  Write-Host "Monitor created"
+  Write-Verbose "Monitor created"
 }
