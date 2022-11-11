@@ -43,5 +43,5 @@ foreach ($monitorFile in $monitorFiles) {
   }
 }
 
-Write-Warning "Invalid monitors: $($invalidMonitors | Out-String)"
+Write-Warning "Invalid monitors:`n$($invalidMonitors | Out-String)"
 Write-Host "Done publishing monitors"
