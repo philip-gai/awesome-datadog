@@ -40,7 +40,7 @@ function Test-Monitor {
     $isValid = $false
   }
 
-  if ($isValid) { Write-Host "Monitor is Valid" } else { Write-Host "Monitor is Invalid" }
+  if ($isValid) { Write-Verbose "Monitor is Valid" } else { Write-Warning "Monitor is Invalid" }
 
   return $isValid
 }

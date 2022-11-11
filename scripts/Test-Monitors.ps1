@@ -21,14 +21,15 @@ $invalidMonitors = @()
 
 foreach ($monitorFile in $monitorFiles) {
   # Validate the monitor
-  $isValid = Test-Monitor -MonitorFile $monitorFile.FullName -ApiKey $ApiKey -AppKey $AppKey -Debug:$DebugPreference
+  $isValid = Test-Monitor -MonitorFile $monitorFile.FullName -ApiKey $ApiKey -AppKey $AppKey -Debug:$DebugPreference -Verbose:$VerbosePreference
   if (!$isValid) {
     Write-Warning "Monitor `"$($monitorFile.FullName)`" is invalid"
     $invalidMonitors += $monitorFile.FullName
   }
 }
 
-Write-Host "Done validating the monitors 🧪"
+$validMonitorCount = $monitorFiles.Count - $invalidMonitors.Count
+Write-Host "$validMonitorCount/$($monitorFiles.Count) monitors are valid"
 
 if ($invalidMonitors.Count -gt 0) {
   Write-Warning "Invalid monitors:`n$($invalidMonitors | Out-String)"
