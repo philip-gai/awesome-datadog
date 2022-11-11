@@ -30,12 +30,12 @@ function Search-Monitor {
   Write-Host "Searching for monitor `"$monitorName`""
 
   $monitorSearchResult = Invoke-WebRequest `
-      -Uri " https://api.datadoghq.com/api/v1/monitor/search" `
-      -Method Get `
-      -UseBasicParsing `
-      -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
-      -Body $query `
-      | ConvertFrom-Json
+    -Uri " https://api.datadoghq.com/api/v1/monitor/search" `
+    -Method Get `
+    -UseBasicParsing `
+    -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
+    -Body $query `
+  | ConvertFrom-Json
 
   Write-Debug "Monitor search results: $($monitorSearchResult | ConvertTo-Json -Depth 10)"
 

@@ -1,24 +1,24 @@
 {
-	"name": "Dotnet GC Memory Load is High on {{name.name}}",
-	"type": "query alert",
-	"query": "avg(last_5m):avg:runtime.dotnet.gc.memory_load{service:*} by {subscription_id,subscription_name,name,aks-cluster-name,service} >= 90",
-	"message": "The GC changes its behavior when its load gets above 85%. It is currently at {{value}}.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/30412/net-runtime-metrics?tpl_var_service%5B0%5D={{service.name}}&live=true).",
-	"tags": [],
-	"options": {
-		"thresholds": {
-			"critical": 90,
-			"warning": 85,
-			"warning_recovery": 80,
-			"critical_recovery": 80
-		},
-		"notify_audit": false,
-		"require_full_window": false,
-		"notify_no_data": false,
-		"renotify_interval": 0,
-		"include_tags": true,
-		"new_group_delay": 60,
-		"silenced": {}
-	},
-	"priority": null,
-	"restricted_roles": null
+  "name": "Dotnet GC Memory Load is High on {{name.name}}",
+  "type": "query alert",
+  "query": "avg(last_5m):avg:runtime.dotnet.gc.memory_load{service:*} by {subscription_id,subscription_name,name,aks-cluster-name,service} >= 90",
+  "message": "The GC changes its behavior when its load gets above 85%. It is currently at {{value}}.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/30412/net-runtime-metrics?tpl_var_service%5B0%5D={{service.name}}&live=true).",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 90,
+      "warning": 85,
+      "warning_recovery": 80,
+      "critical_recovery": 80
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "new_group_delay": 60,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
 }

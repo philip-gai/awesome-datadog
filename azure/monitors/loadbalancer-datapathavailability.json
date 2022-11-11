@@ -1,25 +1,25 @@
 {
-	"name": "Azure Load Balancer Data Path (VIP) Availability is Degraded on {{name.name}}",
-	"type": "query alert",
-	"query": "avg(last_1h):avg:azure.network_loadbalancers.data_path_availability{name:kubernetes,subscription_name:*} by {name,resource_group,region,subscription_name,subscription_id} <= 50",
-	"message": "VIP is only {{value}}% available on Load Balancer {{name.name}}.\n\nVIP refers to data path availability. This measures availability from within a region to the load balancer front end, all the way to the SDN stack that supports your VM.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/71/azure-overview?tpl_var_subscription_name%5B0%5D={{subscription_name.name}}&live=true&tile_focus=8628618229855108).",
-	"tags": [],
-	"options": {
-		"thresholds": {
-			"critical": 50,
-			"critical_recovery": 99,
-			"warning": 80,
-			"warning_recovery": 90
-		},
-		"notify_audit": false,
-		"require_full_window": false,
-		"notify_no_data": false,
-		"renotify_interval": 0,
-		"include_tags": true,
-		"new_group_delay": 60,
-		"evaluation_delay": 300,
-		"silenced": {}
-	},
-	"priority": null,
-	"restricted_roles": null
+  "name": "Azure Load Balancer Data Path (VIP) Availability is Degraded on {{name.name}}",
+  "type": "query alert",
+  "query": "avg(last_1h):avg:azure.network_loadbalancers.data_path_availability{name:kubernetes,subscription_name:*} by {name,resource_group,region,subscription_name,subscription_id} <= 50",
+  "message": "VIP is only {{value}}% available on Load Balancer {{name.name}}.\n\nVIP refers to data path availability. This measures availability from within a region to the load balancer front end, all the way to the SDN stack that supports your VM.\n\nSee [dashboard](https://app.datadoghq.com/dash/integration/71/azure-overview?tpl_var_subscription_name%5B0%5D={{subscription_name.name}}&live=true&tile_focus=8628618229855108).",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 50,
+      "critical_recovery": 99,
+      "warning": 80,
+      "warning_recovery": 90
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "new_group_delay": 60,
+    "evaluation_delay": 300,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
 }

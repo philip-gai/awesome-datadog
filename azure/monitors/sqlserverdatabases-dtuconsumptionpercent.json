@@ -1,23 +1,23 @@
 {
-	"name": "Azure SQL Server Database DTU Consumption is High on {{name.name}}",
-	"type": "query alert",
-	"query": "avg(last_5m):avg:azure.sql_servers_databases.dtu_consumption_percent{subscription_name:*} by {name,resource_group,subscription_id,subscription_name} > 90",
-	"message": "The DTU consumption on {{name.name}} is high. See [dashboard](https://app.datadoghq.com/dash/integration/93/azure-sql-databases-overview?tpl_var_resource_group%5B0%5D={{resource_group.name}}&live=true&tile_focus=3901420757560338).",
-	"tags": [],
-	"options": {
-		"thresholds": {
-			"critical": 90,
-			"warning": 80,
-			"critical_recovery": 70
-		},
-		"notify_audit": false,
-		"require_full_window": false,
-		"notify_no_data": false,
-		"renotify_interval": 0,
-		"include_tags": true,
-		"new_group_delay": 60,
-		"silenced": {}
-	},
-	"priority": null,
-	"restricted_roles": null
+  "name": "Azure SQL Server Database DTU Consumption is High on {{name.name}}",
+  "type": "query alert",
+  "query": "avg(last_5m):avg:azure.sql_servers_databases.dtu_consumption_percent{subscription_name:*} by {name,resource_group,subscription_id,subscription_name} > 90",
+  "message": "The DTU consumption on {{name.name}} is high. See [dashboard](https://app.datadoghq.com/dash/integration/93/azure-sql-databases-overview?tpl_var_resource_group%5B0%5D={{resource_group.name}}&live=true&tile_focus=3901420757560338).",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 90,
+      "warning": 80,
+      "critical_recovery": 70
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": false,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "new_group_delay": 60,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
 }
