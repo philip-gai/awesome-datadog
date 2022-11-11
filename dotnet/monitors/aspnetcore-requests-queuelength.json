@@ -11,8 +11,8 @@
     "silenced": {},
     "include_tags": true,
     "thresholds": {
-      "critical": 30,
-      "critical_recovery": 10
+      "critical": 70,
+      "critical_recovery": 60
     },
     "new_host_delay": 300,
     "require_full_window": false,
