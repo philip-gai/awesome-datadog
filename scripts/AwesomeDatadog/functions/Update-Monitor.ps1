@@ -33,7 +33,7 @@ function Update-Monitor {
     -UseBasicParsing `
     -Headers @{"DD-API-KEY" = $ApiKey; "DD-APPLICATION-KEY" = $AppKey } `
     -Body $monitorJson `
-    | ConvertFrom-Json
+  | ConvertFrom-Json
 
   Write-Debug $response
   Write-Verbose "Monitor updated"

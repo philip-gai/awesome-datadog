@@ -1,23 +1,23 @@
 {
-	"name": "Azure Datadog Integration Data is Missing on {{subscription_name.name}}",
-	"type": "query alert",
-	"query": "avg(last_1h):avg:azure.sql_servers.count{subscription_name:*} by {subscription_name,subscription_id} < 0",
-	"message": "Azure Datadog Integration Data has not been seen in the last 10 minutes.",
-	"tags": [],
-	"options": {
-		"thresholds": {
-			"critical": 0
-		},
-		"notify_audit": false,
-		"require_full_window": false,
-		"notify_no_data": true,
-		"renotify_interval": 0,
-		"include_tags": true,
-		"evaluation_delay": 300,
-		"new_group_delay": 60,
-		"no_data_timeframe": 10,
-		"silenced": {}
-	},
-	"priority": null,
-	"restricted_roles": null
+  "name": "Azure Datadog Integration Data is Missing on {{subscription_name.name}}",
+  "type": "query alert",
+  "query": "avg(last_1h):avg:azure.sql_servers.count{subscription_name:*} by {subscription_name,subscription_id} < 0",
+  "message": "Azure Datadog Integration Data has not been seen in the last 10 minutes.",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 0
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": true,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "evaluation_delay": 300,
+    "new_group_delay": 60,
+    "no_data_timeframe": 10,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
 }

@@ -1,22 +1,22 @@
 {
-	"name": "Dotnet Runtime Data is Missing on {{service.name}}",
-	"type": "query alert",
-	"query": "avg(last_5m):avg:runtime.dotnet.cpu.percent{service:*} by {subscription_id,service} < 0",
-	"message": "Dotnet Runtime Data has not been seen in the last 10 minutes.",
-	"tags": [],
-	"options": {
-		"thresholds": {
-			"critical": 0
-		},
-		"notify_audit": false,
-		"require_full_window": false,
-		"notify_no_data": true,
-		"renotify_interval": 0,
-		"include_tags": true,
-		"new_group_delay": 60,
-		"no_data_timeframe": 10,
-		"silenced": {}
-	},
-	"priority": null,
-	"restricted_roles": null
+  "name": "Dotnet Runtime Data is Missing on {{service.name}}",
+  "type": "query alert",
+  "query": "avg(last_5m):avg:runtime.dotnet.cpu.percent{service:*} by {subscription_id,service} < 0",
+  "message": "Dotnet Runtime Data has not been seen in the last 10 minutes.",
+  "tags": [],
+  "options": {
+    "thresholds": {
+      "critical": 0
+    },
+    "notify_audit": false,
+    "require_full_window": false,
+    "notify_no_data": true,
+    "renotify_interval": 0,
+    "include_tags": true,
+    "new_group_delay": 60,
+    "no_data_timeframe": 10,
+    "silenced": {}
+  },
+  "priority": null,
+  "restricted_roles": null
 }
