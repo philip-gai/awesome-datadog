@@ -1,7 +1,7 @@
 {
   "name": "Azure SQL Server Database Physical Data Read Percent",
   "type": "query alert",
-  "query": "avg(last_1h):avg:azure.sql_servers_databases.physical_data_read_percent{} by {name,server_name} > 50",
+  "query": "avg(last_1h):avg:azure.sql_servers_databases.physical_data_read_percent{*} by {name,server_name} > 50",
   "message": "{{#is_alert}} The Data IO percentage has been greater than {{threshold}}% for the last 15 minutes on {{name.name}} {{/is_alert}}\n\n{{#is_recovery}} The Data IO percentage monitor has recovered. {{/is_recovery}}",
   "tags": [],
   "options": {

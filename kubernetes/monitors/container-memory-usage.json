@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Container Memory Usage",
   "type": "query alert",
-  "query": "avg(last_5m):max:kubernetes.memory.usage{} by {kube_container_name,kube_cluster_name} / max:kubernetes.memory.limits{} by {kube_container_name,kube_cluster_name} * 100 >= 80",
+  "query": "avg(last_5m):max:kubernetes.memory.usage{*} by {kube_container_name,kube_cluster_name} / max:kubernetes.memory.limits{*} by {kube_container_name,kube_cluster_name} * 100 >= 80",
   "message": "{{#is_alert}}\nOver the last five minutes, the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster used {{value}}% of its memory.\n{{/is_alert}}\n{{#is_recovery}}\nMemory usage has returned to normal for the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster.\n{{/is_recovery}}",
   "tags": [],
   "options": {

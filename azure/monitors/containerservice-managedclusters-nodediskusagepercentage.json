@@ -1,7 +1,7 @@
 {
   "name": "Azure Container Service Managed Clusters Node Disk Usage Percentage",
   "type": "query alert",
-  "query": "avg(last_1h):avg:azure.containerservice_managedclusters.node_disk_usage_percentage{} by {subscription_name,node,name} > 80",
+  "query": "avg(last_1h):avg:azure.containerservice_managedclusters.node_disk_usage_percentage{*} by {subscription_name,node,name} > 80",
   "message": "{{#is_alert}} Disk usage on node {{node.name}} is greater than {{threshold}}% {{/is_alert}}\n\n{{#is_recovery}} The node disk usage monitor has recovered. {{/is_recovery}}",
   "tags": [],
   "options": {

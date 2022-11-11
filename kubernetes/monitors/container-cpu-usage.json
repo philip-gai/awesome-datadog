@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Container CPU Usage is High on {{kube_container_name.name}}",
   "type": "query alert",
-  "query": "avg(last_5m):(avg:kubernetes.cpu.usage.total{} by {kube_cluster_name,kube_container_name} / (1000000000 * avg:kubernetes.cpu.limits{} by {kube_cluster_name,kube_container_name})) * 100 >= 80",
+  "query": "avg(last_5m):(avg:kubernetes.cpu.usage.total{*} by {kube_cluster_name,kube_container_name} / (1000000000 * avg:kubernetes.cpu.limits{*} by {kube_cluster_name,kube_container_name})) * 100 >= 80",
   "message": "{{#is_alert}}\nOver the last five minutes, CPU usage has been high at {{value}}% on the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster.\n{{/is_alert}}\n{{#is_recovery}}\nCPU usage has returned to normal for the {{kube_container_name.name}} container on the {{kube_cluster_name.name}} cluster.\n{{/is_recovery}}",
   "tags": [],
   "options": {

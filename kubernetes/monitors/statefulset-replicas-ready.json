@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Statefulset Replicas Ready",
   "type": "query alert",
-  "query": "max(last_15m):sum:kubernetes_state.statefulset.replicas_desired{} by {kube_namespace,kube_stateful_set,kube_cluster_name} - sum:kubernetes_state.statefulset.replicas_ready{} by {kube_namespace,kube_stateful_set,kube_cluster_name} >= 2",
+  "query": "max(last_15m):sum:kubernetes_state.statefulset.replicas_desired{*} by {kube_namespace,kube_stateful_set,kube_cluster_name} - sum:kubernetes_state.statefulset.replicas_ready{*} by {kube_namespace,kube_stateful_set,kube_cluster_name} >= 2",
   "message": "{{#is_alert}}\n{{value}} Statefulset Replica's pods are down in Cluster {{kube_cluster_name.name}} and Statefulset {{kube_namespace.name}}/{{kube_stateful_set.name}}.\n\nThis might present an unsafe situation for any further manual operations, such as killing other pods.\n{{/is_alert}}\n{{#is_recovery}}\nStatefulset Replica's pods have recovered in Cluster {{kube_cluster_name.name}} and Statefulset {{kube_namespace.name}}/{{kube_stateful_set.name}}.\n{{/is_recovery}}",
   "tags": [],
   "options": {

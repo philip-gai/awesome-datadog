@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Nodes Unschedulable",
   "type": "query alert",
-  "query": "max(last_15m):sum:kubernetes_state.node.status{status:schedulable,} by {kube_cluster_name} * 100 / sum:kubernetes_state.node.status{} by {kube_cluster_name} <= 80",
+  "query": "max(last_15m):sum:kubernetes_state.node.status{status:schedulable} by {kube_cluster_name} * 100 / sum:kubernetes_state.node.status{*} by {kube_cluster_name} <= 80",
   "message": "{{#is_alert}}\nLess than {{threshold}}% of nodes are schedulable on the {{kube_cluster_name.name}} cluster.\n\nThis may not be an issue, you may just need to cleanup old node resources in Azure that have been cordoned.\n{{/is_alert}}\n{{#is_recovery}}\nNodes have recovered and are schedulable on cluster {{kube_cluster_name.name}}.\n{{/is_recovery}}",
   "tags": [],
   "options": {

@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Namespace Status Failed",
   "type": "query alert",
-  "query": "change(avg(last_5m),last_5m):sum:kubernetes_state.pod.status_phase{pod_phase:failed,} by {kube_cluster_name,kube_namespace} >= 10",
+  "query": "change(avg(last_5m),last_5m):sum:kubernetes_state.pod.status_phase{pod_phase:failed} by {kube_cluster_name,kube_namespace} >= 10",
   "message": "{{#is_alert}}\n{{value}} pods are failing in Cluster {{kube_cluster_name.name}} and namespace {{kube_namespace.name}}.\n\nThe threshold varies depending on your infrastructure. Change the threshold to suit your needs.\n{{/is_alert}}\n{{#is_recovery}}\nPods have stopped failing in Cluster {{kube_cluster_name.name}}.\n{{/is_recovery}}",
   "tags": [],
   "options": {

@@ -1,7 +1,7 @@
 {
   "name": "Kubernetes Pod CrashloopBackOff",
   "type": "query alert",
-  "query": "max(last_10m):sum:kubernetes_state.container.status_report.count.waiting{reason:crashloopbackoff,} by {kube_cluster_name,kube_namespace} >= 4",
+  "query": "max(last_10m):sum:kubernetes_state.container.status_report.count.waiting{reason:crashloopbackoff} by {kube_cluster_name,kube_namespace} >= 4",
   "message": "{{#is_alert}}\nPod {{pod_name.name}} in cluster {{kube_cluster_name.name}} is in CrashloopBackOff on namespace {{kube_namespace.name}}.\n\nThis alert could generate several alerts for a bad deployment. Adjust the thresholds of the query to suit your infrastructure.\n{{/is_alert}}\n{{#is_recovery}}\nPod {{pod_name.name}} in cluster {{kube_cluster_name.name}} is no longer in CrashloopBackOff.\n{{/is_recovery}}",
   "tags": [],
   "options": {
