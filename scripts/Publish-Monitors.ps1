@@ -43,7 +43,7 @@ foreach ($monitorFile in $monitorFiles) {
   }
 }
 
-Write-Host "Done publishing monitors" -ForegroundColor Green
+Write-Host "Done publishing monitors 🎉"
 
 if ($invalidMonitors.Count -gt 0) {
   Write-Warning "Invalid monitors:`n$($invalidMonitors | Out-String)"
